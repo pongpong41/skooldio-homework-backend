@@ -8,11 +8,11 @@ if (args.length < 1) {
     console.log('\t(This program don\'t support string that have character is number and concern on \'\\\')')
 } else {
     for (const text of args) {
-        let rle = encode(text)
+        const rle = encode(text)
         if (rle.success) {
-            console.log(rle.desc)
+            console.log(rle.value)
         } else {
-            console.log(`Error: ${rle.desc}`)
+            console.log(`Error: ${rle.error}`)
         }
     }
 }

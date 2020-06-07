@@ -1,15 +1,17 @@
-export const encode = (text) => {
+import { Result } from './result'
+
+export const encode = (text: string) => {
     if (!text) {
-        return {success: false, desc: 'Don\'t have string to encode'}
+        return Result.fail('Don\'t have string to encode')
     }
 
     let count = 0
-    let lastLetter;
-    let output = '';
+    let lastLetter = ''
+    let output = ''
 
     for (const c of text) {
         if (c >= '0' && c <= '9') {
-            return {success: false, desc: 'Input string contains some number'}
+            return Result.fail('Input string contains some number')
         }
 
         if (!lastLetter) {
@@ -25,5 +27,5 @@ export const encode = (text) => {
     }
 
     output += `${lastLetter}${count}`
-    return {success: true, desc: output}
+    return Result.ok(output)
 }

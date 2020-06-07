@@ -4,12 +4,13 @@
   "description": "run length encoding command-line",
   "main": "index.js",
   "scripts": {
-    "encode": "babel-node src/cli",
+    "build": "tsc",
+    "encode": "node dist/cli.js",
     "test": "jest --coverage --forceExit --detectOpenHandles"
   },
   "jest": {
     "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
+      "^.+\\.(ts|tsx)$": "ts-jest"
     }
   },
   "repository": {
@@ -22,13 +23,12 @@
   },
   "homepage": "https://github.com/pongpong41/skooldio-homework-backend#readme",
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/node": "^7.10.1",
-    "@babel/preset-env": "^7.10.2",
-    "@babel/register": "^7.10.1",
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5"
   },
   "dependencies": {
-    "babel-jest": "^26.0.1"
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.11"
   }
 }
